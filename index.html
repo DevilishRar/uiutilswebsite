@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Utils</title>
+    <meta name="description" content="UI-Utils is a FabricMC Minecraft mod that adds multiple features to Minecraft GUI, making it useful for debugging plugins and dupe hunting on servers.">
+    
+    <meta content="UI Utils" property="og:title" />
+    <meta content="A Minecraft mod for duplication glitch hunting" property="og:description" />
+    <meta content="https://ui-utils.com" property="og:url" />
+    <meta content="favicon.svg" property="og:image" />
+    <meta content="#8c43ff" data-react-helmet="true" name="theme-color" />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UI Utils">
+    <meta name="twitter:description" content="A powerful Minecraft mod for GUI enhancement, packet manipulation, and duplication glitch hunting">
+    <meta name="twitter:image" content="favicon.svg">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="theme-color" content="#8c43ff">
+</head>
+<body class="dark-theme">
+    <div class="theme-toggle">
+        <button id="dark-mode-btn" class="active"><i class="fas fa-moon"></i></button>
+        <button id="light-mode-btn"><i class="fas fa-sun"></i></button>
+        <button id="system-mode-btn"><i class="fas fa-desktop"></i></button>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="favicon.svg" alt="UI Utils Logo" class="logo-icon">
+                    <span class="logo-text">UI<span class="highlight">Utils</span></span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#downloads">Downloads</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="stars-container"></div>
+        
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="reveal-text">Welcome to <span class="ui-utils-text">UI Utils</span></h1>
+                    <p class="subtitle reveal-text-delay">A powerful Minecraft mod for enhancing GUI functionality</p>
+                    <div class="hero-buttons reveal-btn">
+                        <a href="#downloads" class="btn primary-btn">Download Now</a>
+                        <a href="#features" class="btn secondary-btn">Explore Features</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="minecraft-window">
+                        <div class="minecraft-titlebar">
+                            <span class="minecraft-title">Minecraft</span>
+                            <div class="minecraft-controls">
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                                <span class="control close"></span>
+                            </div>
+                        </div>
+                        <div class="minecraft-content">
+                            <div class="ui-utils-demo">
+                                <div class="ui-menu">
+                                    <div class="ui-button">Close Without Packet</div>
+                                    <div class="ui-button">De-Sync</div>
+                                    <div class="ui-button toggle-button">Send Packets: <span class="toggle-value">TRUE</span></div>
+                                    <div class="ui-button toggle-button">Delay Packets: <span class="toggle-value">FALSE</span></div>
+                                    <div class="ui-button">Save Gui</div>
+                                    <div class="ui-button">Disconnect and send packets</div>
+                                    <div class="ui-button">Fabricate Packet</div>
+                                    <div class="ui-separator">------</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title reveal-on-scroll">Powerful <span class="ui-utils-text">Features</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card reveal-on-scroll" data-delay="0.1">
+                        <div class="feature-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Packet Management</h3>
+                        <p>Delay packets for debugging network communications between client and server.</p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll" data-delay="0.2">
+                        <div class="feature-icon">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <h3>Close Without Packet</h3>
+                        <p>Close interfaces without sending packets to the server, useful for finding duplication glitches.</p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll" data-delay="0.3">
+                        <div class="feature-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h3>Plugin Debugging</h3>
+                        <p>Advanced tools for debugging server plugins and understanding GUI interactions.</p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll" data-delay="0.4">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Server Compatibility</h3>
+                        <p>Works on most servers without triggering anti-cheat mechanisms.</p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll" data-delay="0.5">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Latest Version Support</h3>
+                        <p>Always updated to support the latest stable version of Minecraft.</p>
+                    </div>
+                    <div class="feature-card reveal-on-scroll" data-delay="0.6">
+                        <div class="feature-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>Custom GUI Controls</h3>
+                        <p>Adds additional buttons and controls to Minecraft's GUI for enhanced functionality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="downloads" class="downloads-section">
+            <div class="container">
+                <h2 class="section-title reveal-on-scroll">Download <span class="ui-utils-text">UI Utils</span></h2>
+                <div class="downloads-grid">
+                    <div class="download-card reveal-on-scroll" data-delay="0.1">
+                        <div class="download-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>UI Utils Mod</h3>
+                        <p>Latest version for Minecraft</p>
+                        <a href="https://discord.gg/NkqEVFcmKg" class="btn download-btn" target="_blank">Download</a>
+                    </div>
+                    <div class="download-card reveal-on-scroll" data-delay="0.2">
+                        <div class="download-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Fabric API</h3>
+                        <p>Required dependency</p>
+                        <a href="https://modrinth.com/mod/fabric-api" class="btn download-btn" target="_blank">Download</a>
+                    </div>
+                    <div class="download-card reveal-on-scroll" data-delay="0.3">
+                        <div class="download-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Fabric Installer</h3>
+                        <p>Required for installation</p>
+                        <a href="https://fabricmc.net/use/" class="btn download-btn" target="_blank">Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="documentation" class="documentation-section">
+            <div class="container">
+                <h2 class="section-title reveal-on-scroll">Documentation</h2>
+                <div class="documentation-content reveal-on-scroll">
+                    <div class="doc-description">
+                        <p>Learn how to use UI Utils effectively with our comprehensive documentation. From basic setup to advanced features, we've got you covered.</p>
+                    </div>
+                    <div class="doc-links">
+                        <a href="documentation.html" class="btn primary-btn">View Documentation</a>
+                        <a href="https://github.com/Coderx-Gamer/ui-utils" class="btn secondary-btn" target="_blank">GitHub Repository</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title reveal-on-scroll">About <span class="ui-utils-text">UI Utils</span></h2>
+                <div class="about-content reveal-on-scroll">
+                    <div class="about-text">
+                        <p>UI Utils was created by Coderx Gamer and MrBreakNFix in 2022, when they met on an anarchy server, both trying to find a duplication glitch. They worked together to create what is now known as UI Utils.</p>
+                        <p>The mod adds multiple features to Minecraft GUIs, making it useful for debugging plugins and dupe hunting on servers. It is always updated to the latest stable version of Minecraft.</p>
+                    </div>
+                    <div class="about-image">
+                        <div class="minecraft-block">
+                            <div class="block-face front"></div>
+                            <div class="block-face back"></div>
+                            <div class="block-face left"></div>
+                            <div class="block-face right"></div>
+                            <div class="block-face top"></div>
+                            <div class="block-face bottom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title reveal-on-scroll">Contact the Creators</h2>
+                <div class="creators-grid">
+                    <div class="creator-card reveal-on-scroll" data-delay="0.1">
+                        <div class="creator-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>MrBreakNFix</h3>
+                        <ul class="creator-links">
+                            <li><i class="fab fa-discord"></i> Discord: mrbreaknfix</li>
+                            <li><i class="fas fa-envelope"></i> Email: <a href="mailto:mrbreaknfix@gmail.com">mrbreaknfix@gmail.com</a></li>
+                            <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/MrBreakNFix" target="_blank">MrBreakNFix</a></li>
+                        </ul>
+                    </div>
+                    <div class="creator-card reveal-on-scroll" data-delay="0.2">
+                        <div class="creator-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Coderx Gamer</h3>
+                        <ul class="creator-links">
+                            <li><i class="fab fa-discord"></i> Discord: public_static_void_main_args</li>
+                            <li><i class="fas fa-envelope"></i> Email: <a href="mailto:coderx@mailfence.com">coderx@mailfence.com</a></li>
+                            <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Coderx-Gamer" target="_blank">Coderx-Gamer</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="discord-invite reveal-on-scroll">
+                    <a href="https://discord.com/invite/DfTadNqQEA" class="btn discord-btn" target="_blank">
+                        <i class="fab fa-discord"></i> Join our Discord
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">UI<span class="highlight">Utils</span></span>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#downloads">Downloads</a></li>
+                        <li><a href="#documentation">Documentation</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.com/invite/DfTadNqQEA" target="_blank"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UI Utils. All rights reserved. Created by MrBreakNFix and Coderx Gamer.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

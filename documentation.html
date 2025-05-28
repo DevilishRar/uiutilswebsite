@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Utils - Documentation</title>
+    <meta name="description" content="Documentation for UI-Utils, a FabricMC Minecraft mod that adds multiple features to Minecraft GUI, making it useful for debugging plugins and dupe hunting on servers.">
+    
+    <meta content="UI Utils - Documentation" property="og:title" />
+    <meta content="Documentation for UI-Utils, a Minecraft mod for duplication glitch hunting" property="og:description" />
+    <meta content="https://ui-utils.com/documentation" property="og:url" />
+    <meta content="favicon.svg" property="og:image" />
+    <meta content="#8c43ff" data-react-helmet="true" name="theme-color" />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UI Utils - Documentation">
+    <meta name="twitter:description" content="Documentation for UI-Utils, a powerful Minecraft mod for GUI enhancement, packet manipulation, and duplication glitch hunting">
+    <meta name="twitter:image" content="favicon.svg">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="theme-color" content="#8c43ff">
+    <style>
+        .documentation-page {
+            padding-top: calc(var(--header-height) + 4rem);
+            padding-bottom: 5rem;
+        }
+        
+        .doc-section {
+            margin-bottom: 4rem;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            text-align: center;
+        }
+        
+        .doc-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+            position: relative;
+            padding-bottom: 1rem;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .doc-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6rem;
+            height: 0.3rem;
+            background: var(--accent-primary);
+            border-radius: 0.2rem;
+        }
+        
+        .doc-section h3 {
+            font-size: 2.2rem;
+            margin: 2.5rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .doc-section p {
+            font-size: 1.6rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .feature-list {
+            margin: 2rem auto;
+            max-width: 80%;
+            text-align: center;
+        }
+        
+        .feature-list dt {
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-list dd {
+            margin-bottom: 2rem;
+            margin-left: 0;
+            color: var(--text-secondary);
+            font-size: 1.6rem;
+            line-height: 1.7;
+        }
+        
+        .code-block {
+            background: var(--bg-tertiary);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin: 2rem auto;
+            max-width: 80%;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            text-align: center;
+            display: block;
+        }
+        
+        .code-block code {
+            white-space: pre;
+            color: var(--text-primary);
+            display: inline-block;
+            text-align: left;
+        }
+        
+        .back-to-home {
+            margin-top: 4rem;
+            text-align: center;
+        }
+    </style>
+    <style>
+        .doc-section {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .doc-section p, .doc-section h3, .doc-section h4, .doc-section ul, .doc-section ol {
+            text-align: center;
+        }
+        
+        .doc-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-image: url('images/gui-element.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.05;
+            z-index: -1;
+            transform: translateX(20%) translateY(-20%);
+        }
+        
+        .doc-feature-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            vertical-align: middle;
+            color: var(--accent-primary);
+        }
+        
+        .doc-section code {
+            background: var(--bg-tertiary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: rgba(140, 67, 255, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 2rem auto;
+            border-radius: 0 0.5rem 0.5rem 0;
+            max-width: 90%;
+            text-align: center;
+        }
+        
+        .feature-list dt {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 3rem auto;
+            width: 80%;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <div id="stars-container"></div>
+    <div class="theme-toggle">
+        <button id="dark-mode-btn" class="active"><i class="fas fa-moon"></i></button>
+        <button id="light-mode-btn"><i class="fas fa-sun"></i></button>
+        <button id="system-mode-btn"><i class="fas fa-desktop"></i></button>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="favicon.svg" alt="UI Utils Logo" class="logo-icon">
+                    <span class="logo-text">UI<span class="highlight">Utils</span></span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#downloads">Downloads</a></li>
+                    <li><a href="documentation.html" class="active">Documentation</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="documentation-page">
+        <div class="container">
+            <h1 class="section-title">UI Utils Documentation</h1>
+            
+            <section class="doc-section">
+                <h2>Overview Of Features</h2>
+                <p style="text-align: center;">UI-Utils has many features, which will be documented here. When opening an inventory / container with UI-Utils, you will notice some extra features, here is a list of those features with descriptions:</p>
+                
+                <div class="highlight-box">
+                    <p>When opening an inventory or container with UI-Utils enabled, you'll see additional buttons and controls that provide powerful functionality.</p>
+                </div>
+                
+                <dl class="feature-list">
+                    <dt><i class="fas fa-times-circle doc-feature-icon"></i> Close without packet</dt>
+                    <dd>Close your GUI without sending a <code>CloseHandledScreenC2SPacket</code> to the server.</dd>
+                    
+                    <dt><i class="fas fa-sync-alt doc-feature-icon"></i> De-sync</dt>
+                    <dd>Send a <code>CloseHandledScreenC2SPacket</code> without closing your GUI client-side.</dd>
+                    
+                    <dt><i class="fas fa-paper-plane doc-feature-icon"></i> Send packets: true / false</dt>
+                    <dd>When enabled, no GUI related packets will be sent to the server (<code>ClickSlotC2SPacket</code> and <code>ButtonClickC2SPacket</code>.)</dd>
+                    
+                    <dt><i class="fas fa-clock doc-feature-icon"></i> Delay packets: true / false</dt>
+                    <dd>When enabled, no GUI related packets will be sent to the server (<code>ClickSlotC2SPacket</code> and <code>ButtonClickC2SPacket</code>) until disabled, then, all delayed packets will be sent in the same tick.</dd>
+                    
+                    <dt><i class="fas fa-save doc-feature-icon"></i> Save GUI</dt>
+                    <dd>Saves your GUI internally and can be re-opened using a key-binding (default key-binding is '<code>v</code>',) this works well with the "Close without packet" feature.</dd>
+                    
+                    <div class="section-divider"></div>
+                    
+                    <dt><i class="fas fa-plug doc-feature-icon"></i> Disconnect and send packets</dt>
+                    <dd>Sends all queued packets from "Delay packets", then, immediately disconnects from the server.</dd>
+                    
+                    <dt><i class="fas fa-cogs doc-feature-icon"></i> Fabricate packet</dt>
+                    <dd>Opens a window that allows you to send any GUI packet any amount of times (see 'Fabricate Packet Feature' for more information.)</dd>
+                    
+                    <dt><i class="fas fa-copy doc-feature-icon"></i> Copy GUI Title JSON</dt>
+                    <dd>Copies your GUI's title as JSON.</dd>
+                    
+                    <dt><i class="fas fa-hashtag doc-feature-icon"></i> Sync Id: ??</dt>
+                    <dd>Shows your GUI's sync ID.</dd>
+                    
+                    <dt><i class="fas fa-code-branch doc-feature-icon"></i> Revision: ??</dt>
+                    <dd>Shows your GUI's revision ID.</dd>
+                </dl>
+                
+                <p>The text box below is a chat field for chatting or running commands while in a GUI. Another random feature allows you to wake up out of a bed (client-side) by clicking the "Client wake up" button while in a bed. You can also bypass required resource packs on servers by enabling "Bypass Resource Pack" in the multiplayer screen, if you still get kicked, enable "Force Deny" to block all server resource packs. All of those features can be disabled / enabled by running "^toggleuiutils" in chat.</p>
+            </section>
+            
+            <section class="doc-section">
+                <h2>Fabricate Packet Feature</h2>
+                <div class="highlight-box">
+                    <p><i class="fas fa-info-circle"></i> The Fabricate Packet feature allows you to create and send custom GUI packets for advanced interactions with the server.</p>
+                </div>
+                
+                <p>Using the fabricate packet feature, you can create any GUI packet and send it any amount of times. When clicking <code>Fabricate packet</code>, you will see a window prompting you for a packet to send:</p>
+                
+                <div style="display: flex; justify-content: center; margin: 2rem 0;">
+                    <div style="text-align: center; max-width: 300px; padding: 1.5rem; background: var(--bg-tertiary); border-radius: 0.5rem;">
+                        <h3 style="margin-top: 0;">Select Packet Type</h3>
+                        <div style="display: flex; justify-content: space-around; margin-top: 1.5rem;">
+                            <div style="padding: 0.8rem 1.5rem; background: var(--accent-primary); border-radius: 0.3rem; color: white;">Click Slot</div>
+                            <div style="padding: 0.8rem 1.5rem; background: var(--bg-secondary); border-radius: 0.3rem;">Button Click</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3><i class="fas fa-mouse-pointer doc-feature-icon"></i> Click Slot Packet</h3>
+                <p>When selecting "Click Slot", a window appears with several fields:</p>
+                
+                <ul style="list-style-type: none; padding-left: 2rem;">
+                    <li><i class="fas fa-hashtag" style="color: var(--accent-primary); width: 20px;"></i> <strong>Sync Id:</strong> Should match the "Sync Id" field shown in your in-game GUI</li>
+                    <li><i class="fas fa-code-branch" style="color: var(--accent-primary); width: 20px;"></i> <strong>Revision:</strong> Should match the "Revision" field shown in your in-game GUI</li>
+                    <li><i class="fas fa-th" style="color: var(--accent-primary); width: 20px;"></i> <strong>Slot:</strong> Numeric ID for the inventory slot you want to interact with</li>
+                    <li><i class="fas fa-hand-pointer" style="color: var(--accent-primary); width: 20px;"></i> <strong>Button:</strong> Which mouse button is being clicked:
+                        <ul style="list-style-type: none; padding-left: 2rem; margin-top: 0.5rem;">
+                            <li>• 0: Left click (or no button)</li>
+                            <li>• 1: Right click</li>
+                            <li>• 0-8: Hotbar slot (when using SWAP)</li>
+                            <li>• 40: Offhand (when using SWAP)</li>
+                        </ul>
+                    </li>
+                    <li><i class="fas fa-mouse" style="color: var(--accent-primary); width: 20px;"></i> <strong>Action:</strong> Type of click action:
+                        <ul style="list-style-type: none; padding-left: 2rem; margin-top: 0.5rem;">
+                            <li>• <code>PICKUP</code>: Click item</li>
+                            <li>• <code>PICKUP_ALL</code>: Double click item</li>
+                            <li>• <code>QUICK_MOVE</code>: Shift click item</li>
+                            <li>• <code>SWAP</code>: Swap item to hotbar</li>
+                            <li>• <code>CLONE</code>: Middle click item</li>
+                            <li>• <code>THROW</code>: Drop item</li>
+                            <li>• <code>QUICK_CRAFT</code>: Used for quick crafting</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3><i class="fas fa-toggle-on doc-feature-icon"></i> Button Click Packet</h3>
+                <p>When selecting "Button Click", you can send a <code>ButtonClickC2SPacket</code>, which can click buttons on a GUI, such as enchantments in an enchanting table.</p>
+                
+                <ul style="list-style-type: none; padding-left: 2rem;">
+                    <li><i class="fas fa-hashtag" style="color: var(--accent-primary); width: 20px;"></i> <strong>Sync Id:</strong> Should match the in-game "Sync Id" field</li>
+                    <li><i class="fas fa-id-badge" style="color: var(--accent-primary); width: 20px;"></i> <strong>Button Id:</strong> Numeric ID of the button (starting at zero)</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Advanced Usage:</strong> You can send any GUI packet multiple times by adjusting the "Times to send" field. The "Delay" checkbox should be checked if you want to queue packets into the "Delay packets" system (they'll send immediately if "Delay packets" is off).</p>
+                </div>
+            </section>
+            
+            <section class="doc-section">
+                <h2>Building And Installation</h2>
+                
+                <div class="highlight-box">
+                    <p><i class="fas fa-download"></i> <strong>Quick Start:</strong> For most users, we recommend downloading a pre-built jar from the <a href="https://discord.gg/NkqEVFcmKg" target="_blank">releases page</a> rather than building from source.</p>
+                </div>
+                
+                <div style="display: flex; justify-content: center; margin: 3rem 0;">
+                    <div style="text-align: center; max-width: 70%; padding: 0 2rem;">
+                        <h3 style="margin-top: 0;">Installation Steps</h3>
+                        <ol style="text-align: left; display: inline-block;">
+                            <li>Download UI-Utils jar file (pre-built or self-built)</li>
+                            <li>Install <a href="https://fabricmc.net/" target="_blank">FabricMC</a> for your Minecraft version</li>
+                            <li>Place the UI-Utils jar in your Minecraft <code>mods</code> folder</li>
+                            <li>Download and add <a href="https://modrinth.com/mod/fabric-api" target="_blank">Fabric API</a> to your mods folder</li>
+                            <li>Launch Minecraft and enjoy!</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <h3><i class="fas fa-code-branch doc-feature-icon"></i> Building From Source</h3>
+                
+                <div class="section-divider"></div>
+                
+                <h4><i class="fab fa-linux doc-feature-icon"></i> Linux Build Instructions</h4>
+                <p>To build your own jar file, download a source code archive (ui-utils-x.x.x.tar.gz or ui-utils-x.x.x.zip), extract it, then open a terminal in that directory and run:</p>
+                
+                <div class="code-block">
+                    <code>sha256sum -b ./gradle/wrapper/gradle-wrapper.jar</code>
+                </div>
+                
+                <p>Verify the output against the <a href="https://gradle.org/release-checksums/" target="_blank">official Gradle checksums</a> (use CTRL+F to search). Then build the jar file:</p>
+                
+                <div class="code-block">
+                    <code>chmod +x ./gradlew
+./gradlew build</code>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h4><i class="fab fa-windows doc-feature-icon"></i> Windows Build Instructions</h4>
+                <p>On Windows, follow these steps:</p>
+                <ol>
+                    <li>Download and extract the source code archive</li>
+                    <li>Verify the SHA256 checksum of <code>./gradle/wrapper/gradle-wrapper.jar</code> using a tool like <a href="https://www.microsoft.com/en-us/p/microsoft-powertoy/9pk2s8kx93d5" target="_blank">PowerToys</a> or <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash" target="_blank">Get-FileHash in PowerShell</a></li>
+                    <li>Check that the hash appears in the <a href="https://gradle.org/release-checksums/" target="_blank">official Gradle checksums</a></li>
+                    <li>Open Command Prompt in the extracted folder</li>
+                    <li>Run the build command:</li>
+                </ol>
+                
+                <div class="code-block">
+                    <code>gradlew build</code>
+                </div>
+                
+                <p>After building, your jar file will be located at <code>./build/libs/ui-utils-x.x.x.jar</code>.</p>
+                
+                <div class="highlight-box">
+                    <p><i class="fas fa-lightbulb"></i> <strong>Tip:</strong> If you encounter any issues during installation, join our <a href="https://discord.gg/NkqEVFcmKg" target="_blank">Discord server</a> for community support.</p>
+                </div>
+            </section>
+            
+            <div class="back-to-home">
+                <a href="index.html" class="btn primary-btn">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">UI<span class="highlight">Utils</span></span>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#downloads">Downloads</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.com/invite/DfTadNqQEA" target="_blank"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UI Utils. All rights reserved. Created by MrBreakNFix and Coderx Gamer.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
